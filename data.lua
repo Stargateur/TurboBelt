@@ -6,19 +6,20 @@ require("corpses")
 local item_sounds = require("__base__.prototypes.item_sounds")
 local kg = 1000
 
-data:extend({ {
-  type = "recipe",
-  name = "turbo-transport-belt",
-  category = "crafting-with-fluid",
-  enabled = false,
-  ingredients =
+data:extend({
   {
-    { type = "item",  name = "uranium-238",            amount = 5 },
-    { type = "item",  name = "express-transport-belt", amount = 1 },
-    { type = "fluid", name = "lubricant",              amount = 20 }
+    type = "recipe",
+    name = "turbo-transport-belt",
+    category = "crafting-with-fluid",
+    enabled = false,
+    ingredients =
+    {
+      { type = "item",  name = "uranium-238",            amount = 5 },
+      { type = "item",  name = "express-transport-belt", amount = 1 },
+      { type = "fluid", name = "lubricant",              amount = 20 }
+    },
+    results = { { type = "item", name = "turbo-transport-belt", amount = 1 } }
   },
-  results = { { type = "item", name = "turbo-transport-belt", amount = 1 } }
-},
   {
     type = "recipe",
     name = "turbo-underground-belt",
