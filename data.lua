@@ -138,7 +138,7 @@ data:extend({
         recipe = "turbo-splitter"
       },
     },
-    prerequisites = { "utility-science-pack", "logistics-3" },
+    prerequisites = { "utility-science-pack", "logistics-3", "uranium-processing" },
     unit =
     {
       count = 500,
@@ -154,3 +154,34 @@ data:extend({
     }
   }
 })
+
+if mods["aai-loaders"] then
+  local recipe = {
+      crafting_category = "crafting-with-fluid",
+      ingredients = {
+        { type = "item",  name = "aai-express-loader", amount = 1 },
+        { type = "item",  name = "uranium-238",        amount = 30 },
+        { type = "item",  name = "processing-unit",    amount = 4 },
+        { type = "fluid", name = "lubricant",          amount = 160 }
+      },
+      energy_required = 2
+    }
+  local turbo_specs = {
+    name = "turbo",
+    transport_belt = "turbo-transport-belt",
+    color = { 155, 182, 0 },
+    fluid = "lubricant",
+    fluid_per_minute = "0.25",
+    technology = {
+      prerequisites = { "turbo-transport-belt", "aai-express-loader", "processing-unit" },
+      unit = {
+        count = 500,
+        ingredients = data.raw.technology["turbo-transport-belt"].unit.ingredients,
+        time = 15
+      }
+    },
+    recipe = recipe,
+  }
+
+  AAILoaders.make_tier(turbo_specs)
+end
