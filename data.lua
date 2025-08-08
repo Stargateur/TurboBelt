@@ -185,3 +185,28 @@ if mods["aai-loaders"] then
 
   AAILoaders.make_tier(turbo_specs)
 end
+
+if mods["comfortable-loader"] then
+    if data.raw["loader-1x1"]["express-comfortable-loader"] then
+        data.raw["loader-1x1"]["express-comfortable-loader"].next_upgrade = "turbo-comfortable-loader"
+    end
+
+    --tier 4
+    deadlock.add_tier({
+        transport_belt = "turbo-transport-belt",
+        loader = "turbo-comfortable-loader",
+
+        colour = { r = 129, g = 139, b = 90 },
+        underground_belt = "turbo-underground-belt",
+        splitter = "turbo-splitter",
+        technology = "turbo-transport-belt",
+        order = "d",
+        loader_ingredients = {
+            { type = "item", name = "express-comfortable-loader", amount = 1 },
+            { type = "item", name = "iron-gear-wheel", amount = 40 },
+            { type = "item", name = "uranium-238", amount = 10 },
+            { type = "fluid", name = "lubricant", amount = 20 },
+        },
+        loader_category = "crafting-with-fluid",
+    })
+end
